@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Student{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Add New Student</h2>
+    {% if messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    
+    <div class="card p-4 shadow-sm">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Student Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="mb-3">
+                <label for="course" class="form-label">Course</label>
+                <input type="text" class="form-control" id="course" name="course" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Student</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

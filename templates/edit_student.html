@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Student{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Edit Student</h2>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert 
+            {% if message.tags == 'success' %}alert-success
+            {% elif message.tags == 'error' %}alert-danger
+            {% endif %}
+            alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+
+    
+    <div class="card p-4 shadow-sm">
+        <form method="POST" action="{% url 'update_student' student.id %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Student Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ student.name }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ student.email }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" value="{{ student.phone }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="course" class="form-label">Course</label>
+                <input type="text" class="form-control" id="course" name="course" value="{{ student.course }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Student</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

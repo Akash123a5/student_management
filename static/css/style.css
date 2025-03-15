@@ -1,0 +1,24 @@
+.navbar {
+    background-color: #007bff;
+}
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+.table-container {
+    margin-top: 20px;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* এই অংশটা মূল কন্টেন্টকে বাকি জায়গা নিতে দেবে */
+}
+
+footer {
+    margin-top: auto; /* এটি ফুডারকে নিচে পাঠাবে */
+}
+
