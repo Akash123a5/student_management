@@ -1,4 +1,4 @@
-# 🌐 Project Name
+# 🌐 Student Management System
 
 ### 🔗 Live Site:
 👉 [Visit Live Site](https://akash123a5.pythonanywhere.com/)
